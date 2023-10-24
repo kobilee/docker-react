@@ -3,10 +3,9 @@ import App from './App';
 
 test('renders I changed link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/I changed/i);
-  expect(linkElement).toBeInTheDocument();
+  const linkElements = screen.getAllByText(/I changed/i);
+  expect(linkElements.length).toBeGreaterThan(0);
+  linkElements.forEach(element => {
+    expect(element).toBeInTheDocument();
+  });
 });
-
-
-
- 
